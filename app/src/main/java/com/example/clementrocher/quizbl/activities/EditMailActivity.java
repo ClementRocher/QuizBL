@@ -12,4 +12,8 @@ public class EditMailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_mail);
     }
+
+    /*
+    TODO : A designer, ou faire sous forme de Pop-Up ?
+     */
 }

@@ -22,5 +22,9 @@ public class ClassementActivity extends AppCompatActivity {
                 startActivity(intentRetour);
             }
         });
+
+        /*
+        TODO : A designer entièrement
+         */
     }
 }

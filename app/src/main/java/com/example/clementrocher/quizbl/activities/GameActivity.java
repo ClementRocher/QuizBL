@@ -8,17 +8,20 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.example.clementrocher.quizbl.R;
 
 public class GameActivity extends AppCompatActivity {
 
-    ProgressBar mProgressBar;
-    CountDownTimer mCountDownTimer;
+    ProgressBar mProgressBar; //barre de progression du timer
+    CountDownTimer mCountDownTimer; //Timer
+    TextView intituleQuestion; //Intitulé de la question
     Button reponse1; //Bouton haut gauche
     Button reponse2; //Bouton haut droite
     Button reponse3; //Bouton bas gauche
     Button reponse4; //Bouton bas droite
+    TextView numQuestion; //Numéro de question
     boolean clicked = false;
     int i=0;
     @Override
@@ -31,7 +34,9 @@ public class GameActivity extends AppCompatActivity {
         reponse2 = findViewById(R.id.reponse2Button);
         reponse3 = findViewById(R.id.reponse3Button);
         reponse4 = findViewById(R.id.reponse4Button);
-        mProgressBar=(ProgressBar)findViewById(R.id.progressBar);
+        mProgressBar= findViewById(R.id.progressBar);
+        numQuestion = findViewById(R.id.numQuestionTextView);
+        intituleQuestion = findViewById(R.id.intituleQuestionTextView);
 
         //Setters
         mProgressBar.setProgress(i);
@@ -53,6 +58,9 @@ public class GameActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
+                    /*
+                    TODO : Intent temporaire, implémenter affichage réponse et passage à la prochaine question
+                    */
                     Intent intentFinTimer = new Intent(GameActivity.this, ClassementActivity.class);
                     startActivity(intentFinTimer);
                     i++;
@@ -60,23 +68,24 @@ public class GameActivity extends AppCompatActivity {
             }
         };
         mCountDownTimer.start();
+
+        //Appel d'une boucle void game() pertinent pour la série de 10 questions ?
     }
 
     @Override
     public void onBackPressed(){
-        //do nothing
+        //Blocage de la fonction retour une fois en jeu
     }
 
     private View.OnClickListener buttonClickListener= new View.OnClickListener(){
 
         @Override
         public void onClick(View v) {
-            int id = v.getId();
-            mCountDownTimer.cancel();
+            int id = v.getId(); //Récupération id du bouton cliqué
+            mCountDownTimer.cancel(); //Arrêt du timer
             switch(id){
                 case R.id.reponse1Button:
-                    Intent intentTest = new Intent(GameActivity.this,SettingsActivity.class);
-                    startActivity(intentTest);
+
                     break;
                 case R.id.reponse2Button:
                     //code
@@ -85,8 +94,7 @@ public class GameActivity extends AppCompatActivity {
                     //code
                     break;
                 case R.id.reponse4Button:
-                    Intent intentLoL = new Intent(GameActivity.this,AccueilActivity.class);
-                    startActivity(intentLoL);
+
                     break;
             }
         }

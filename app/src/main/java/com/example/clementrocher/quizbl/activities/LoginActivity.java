@@ -35,6 +35,14 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        /*
+        todo : Créer une fonction stayLogged pour vérifier si l'user est tjrs connecté mais a fermé l'app (Sharedpreferences)
+         */
+
+        //Bouton d'acces rapide au menu principal
+        /*
+        Todo : supprimer ce bouton absolument quand le stayLogged sera pret
+         */
         Button accesrapideBouton = (Button) findViewById(R.id.raccourci);
         accesrapideBouton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +52,9 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        /*
+        Todo : ajouter un intersticiel/Splash Screen avant cet écran pendant la vérification du stayLogged ?
+         */
 
     }
 

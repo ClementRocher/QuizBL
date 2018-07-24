@@ -6,6 +6,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
 
+    /*
+    TODO : a completer avant de l'utiliser
+     */
     public static final String PROFIL_KEY = "id";
     public static final String PROFIL_NOM = "nom";
     public static final String PROFIL_PRENOM = "prenom";

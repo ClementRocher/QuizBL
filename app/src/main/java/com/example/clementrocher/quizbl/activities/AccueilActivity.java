@@ -6,17 +6,31 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.clementrocher.quizbl.R;
 
 public class AccueilActivity extends AppCompatActivity {
+
+    TextView profilAffichageTextView;
+    ImageButton profilButton;
+    ImageButton settingsButton;
+    Button gameButton;
+    Button classementButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
 
-        ImageButton profilButton= (ImageButton) findViewById(R.id.profilButton);
+        //Instanciation
+        profilButton= findViewById(R.id.profilButton);
+        settingsButton = findViewById(R.id.settingsButton);
+        gameButton = findViewById(R.id.gameButton);
+        classementButton = findViewById(R.id.classementButton);
+        profilAffichageTextView = findViewById(R.id.profilAffichageTextView);
+
+        //Setters
         profilButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -25,7 +39,6 @@ public class AccueilActivity extends AppCompatActivity {
             }
         });
 
-        ImageButton settingsButton= (ImageButton) findViewById(R.id.settingsButton);
         settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -34,7 +47,6 @@ public class AccueilActivity extends AppCompatActivity {
             }
         });
 
-        Button gameButton= (Button) findViewById(R.id.gameButton);
         gameButton.setText("Lancer Une \nPartie !");
         gameButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,7 +56,6 @@ public class AccueilActivity extends AppCompatActivity {
             }
         });
 
-        Button classementButton= (Button) findViewById(R.id.classementButton);
         classementButton.setText("Accéder à mon \nclassement");
         classementButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,10 +64,15 @@ public class AccueilActivity extends AppCompatActivity {
                 startActivity(intentClassement);
             }
         });
+
+        /*
+        TODO : Récuperer le nom et prénom en BDD et les afficher dans profilAffichageTextView
+         */
     }
 
     @Override
     public void onBackPressed(){
         //do nothing
+        //Empecher le retour à la page d'inscription ou de connexion
     }
 }

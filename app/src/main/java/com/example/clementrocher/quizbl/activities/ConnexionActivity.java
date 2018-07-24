@@ -36,9 +36,28 @@ import com.example.clementrocher.quizbl.R;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
+
+
+
+
+
+
+
+
+
 /**
- * A login screen that offers login via email/password.
+ * TODO : A REPRENDRE ENTIEREMENT
  */
+
+
+
+
+
+
+
+
+
+
 public class ConnexionActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
     /**
