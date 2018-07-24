@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".activities.SettingsActivity">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/connexionFbButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread"
+        app:srcCompat="@drawable/logo" />
+
+    <Button
+        android:id="@+id/connexionFbButton"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:background="@drawable/mybutton"
+        android:text="Connexion \nFaceBook"
+        app:layout_constraintBottom_toTopOf="@+id/notifButton"
+        app:layout_constraintEnd_toStartOf="@+id/aideButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+    <Button
+        android:id="@+id/sonButton"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:background="@drawable/mybutton"
+        android:text="Son"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/deconnexionButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/notifButton" />
+
+    <Button
+        android:id="@+id/notifButton"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:background="@drawable/mybutton"
+        android:text="Notifications"
+        app:layout_constraintBottom_toTopOf="@+id/sonButton"
+        app:layout_constraintEnd_toStartOf="@+id/conditionsButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/connexionFbButton" />
+
+    <Button
+        android:id="@+id/aideButton"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:background="@drawable/mybutton"
+        android:text="Aide"
+        app:layout_constraintBottom_toTopOf="@+id/conditionsButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/connexionFbButton"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+
+    <Button
+        android:id="@+id/conditionsButton"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:background="@drawable/mybutton"
+        android:text="Conditions \nd'utilisation"
+        app:layout_constraintBottom_toTopOf="@+id/deconnexionButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/notifButton"
+        app:layout_constraintTop_toBottomOf="@+id/aideButton" />
+
+    <Button
+        android:id="@+id/deconnexionButton"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:background="@drawable/mybutton"
+        android:text="Déconnexion"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/sonButton"
+        app:layout_constraintTop_toBottomOf="@+id/conditionsButton" />
+
+
+</android.support.constraint.ConstraintLayout>
