@@ -26,14 +26,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Déjà inscrit ?"
-        app:layout_constraintBottom_toTopOf="@+id/connexionBouton"
+        app:layout_constraintBottom_toTopOf="@+id/goToConnexionButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inscriptionBouton" />
+        app:layout_constraintTop_toBottomOf="@+id/goToInscriptionBouton" />
 
     <Button
-        android:id="@+id/connexionBouton"
+        android:id="@+id/goToConnexionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/mybutton"
@@ -48,14 +48,14 @@
         android:layout_width="wrap_content"
         android:layout_height="19dp"
         android:text="Nouveau sur BL Quiz ?"
-        app:layout_constraintBottom_toTopOf="@+id/inscriptionBouton"
+        app:layout_constraintBottom_toTopOf="@+id/goToInscriptionBouton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
-        android:id="@+id/inscriptionBouton"
+        android:id="@+id/goToInscriptionBouton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/mybutton"

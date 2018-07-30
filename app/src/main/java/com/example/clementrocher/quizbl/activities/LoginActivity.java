@@ -15,7 +15,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Button inscriptionBouton = (Button) findViewById(R.id.inscriptionBouton);
+        Button inscriptionBouton = (Button) findViewById(R.id.goToInscriptionBouton);
         inscriptionBouton.setText("Inscription");
         inscriptionBouton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -25,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        Button connexionBouton = (Button) findViewById(R.id.connexionBouton);
+        Button connexionBouton = (Button) findViewById(R.id.goToConnexionButton);
         connexionBouton.setText("Se Connecter");
         connexionBouton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,9 +35,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        /*
-        todo : Créer une fonction stayLogged pour vérifier si l'user est tjrs connecté mais a fermé l'app (Sharedpreferences)
-         */
 
         //Bouton d'acces rapide au menu principal
         /*
@@ -51,11 +48,6 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intentAcces);
             }
         });
-
-        /*
-        Todo : ajouter un intersticiel/Splash Screen avant cet écran pendant la vérification du stayLogged ?
-         */
-
     }
 
     @Override

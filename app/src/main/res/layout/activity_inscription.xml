@@ -24,6 +24,7 @@
                 android:id="@+id/registerLogo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/descLogo"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/logo" />
@@ -35,7 +36,6 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:text="Remplissez vos informations pour vous inscrire" />
-            <!-- TODO : enlever la hardcoded string -->
 
             <EditText
                 android:id="@+id/nomEditText"

@@ -62,6 +62,11 @@ public class InscriptionActivity extends AppCompatActivity implements AdapterVie
         departementEditText = findViewById(R.id.departementEditText);
         communeEditText = findViewById(R.id.communeEditText);
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         //Listener du Bouton
         inscriptionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,6 +106,7 @@ public class InscriptionActivity extends AppCompatActivity implements AdapterVie
                     /* TODO : Insérer le profil créé dans la BDD
 
                      */
+
                     startActivity(intentInscription);
                 }
             }

@@ -41,6 +41,7 @@
         android:id="@+id/imageView2"
         android:layout_width="202dp"
         android:layout_height="159dp"
+        android:contentDescription="@string/descLogo"
         app:layout_constraintBottom_toTopOf="@+id/gameButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
