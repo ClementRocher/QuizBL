@@ -47,17 +47,17 @@ public class InscriptionActivity extends AppCompatActivity implements AdapterVie
         setContentView(R.layout.activity_inscription);
 
         //Sérialisation
-        inscriptionButton =  findViewById(R.id.inscriptionBouton);
+        inscriptionButton = findViewById(R.id.inscriptionBouton);
         nomEditText = findViewById(R.id.nomEditText);
         prenomEditText = findViewById(R.id.prenomEditText);
         mailEditText = findViewById(R.id.emailEditText);
         passwordEditText = findViewById(R.id.passwordEditText);
         passwordCheckEditText = findViewById(R.id.passwordCheckEditText);
         mandatSpinner = findViewById(R.id.mandatSpinner);
-            ArrayAdapter <CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.mandat_array,android.R.layout.simple_spinner_item);
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            mandatSpinner.setAdapter(adapter);
-            mandatSpinner.setOnItemSelectedListener(this);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.mandat_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mandatSpinner.setAdapter(adapter);
+        mandatSpinner.setOnItemSelectedListener(this);
         circonscriptionEditText = findViewById(R.id.circonscriptionEditText);
         departementEditText = findViewById(R.id.departementEditText);
         communeEditText = findViewById(R.id.communeEditText);
@@ -86,23 +86,22 @@ public class InscriptionActivity extends AppCompatActivity implements AdapterVie
                 commune = communeEditText.getText().toString();
 
                 //Condition pour s'assurer que tout soit rempli, affichage d'un Toast d'erreur sinon
-                if(nom.matches("") || prenom.matches("") || mail.matches("") ||
+                if (nom.matches("") || prenom.matches("") || mail.matches("") ||
                         password.matches("") || passwordCheck.matches("") || mandat.matches("Sélectionnez votre type de mandat")
-                        || circonscription.matches("") || departement.matches("") || commune.matches(""))
-                {
-                    Toast.makeText(InscriptionActivity.this,"Vous devez renseigner tous les champs",Toast.LENGTH_SHORT).show();
-                    verif=false;
+                        || circonscription.matches("") || departement.matches("") || commune.matches("")) {
+                    Toast.makeText(InscriptionActivity.this, "Vous devez renseigner tous les champs", Toast.LENGTH_SHORT).show();
+                    verif = false;
                 }
 
                 //Condition pour que le password et le passwordCheck soient les mêmes, Toast d'erreur sinon
-                if(!password.equals(passwordCheck)){
-                    Toast.makeText(InscriptionActivity.this,"Votre mot de passe ne correspond pas",Toast.LENGTH_SHORT).show();
-                    verif=false;
+                if (!password.equals(passwordCheck)) {
+                    Toast.makeText(InscriptionActivity.this, "Votre mot de passe ne correspond pas", Toast.LENGTH_SHORT).show();
+                    verif = false;
                 }
 
                 //Si les conditions sont validées
-                if(verif){
-                    Intent intentInscription = new Intent(InscriptionActivity.this,AccueilActivity.class);
+                if (verif) {
+                    Intent intentInscription = new Intent(InscriptionActivity.this, AccueilActivity.class);
                     /* TODO : Insérer le profil créé dans la BDD
 
                      */

@@ -20,6 +20,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             tools:layout_editor_absoluteX="8dp">
+
             <ImageView
                 android:id="@+id/registerLogo"
                 android:layout_width="wrap_content"
@@ -94,8 +95,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="Var 7" />
+                android:hint="Var 7"
+                android:inputType="textPersonName" />
 
             <TextView
                 android:id="@+id/departementTextView"
@@ -109,8 +110,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="Saône et Loire" />
+                android:hint="Saône et Loire"
+                android:inputType="textPersonName" />
 
             <TextView
                 android:id="@+id/communeTextView"

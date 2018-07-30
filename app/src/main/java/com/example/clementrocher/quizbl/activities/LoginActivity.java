@@ -10,30 +10,17 @@ import com.example.clementrocher.quizbl.R;
 
 public class LoginActivity extends AppCompatActivity {
 
+    Button inscriptionButton;
+    Button connexionButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Button inscriptionBouton = (Button) findViewById(R.id.goToInscriptionBouton);
-        inscriptionBouton.setText("Inscription");
-        inscriptionBouton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intentInscription = new Intent(LoginActivity.this,InscriptionActivity.class);
-                startActivity(intentInscription);
-            }
-        });
+        inscriptionButton = findViewById(R.id.goToInscriptionBouton);
+        connexionButton = findViewById(R.id.goToConnexionButton);
 
-        Button connexionBouton = (Button) findViewById(R.id.goToConnexionButton);
-        connexionBouton.setText("Se Connecter");
-        connexionBouton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intentConnexion = new Intent(LoginActivity.this,ConnexionActivity.class);
-                startActivity(intentConnexion);
-            }
-        });
 
 
         //Bouton d'acces rapide au menu principal
@@ -48,6 +35,32 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intentAcces);
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        //Setters des Boutons
+        inscriptionButton.setText("Inscription");
+        inscriptionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentInscription = new Intent(LoginActivity.this,InscriptionActivity.class);
+                startActivity(intentInscription);
+            }
+        });
+
+        connexionButton.setText("Se Connecter");
+        connexionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentConnexion = new Intent(LoginActivity.this,ConnexionActivity.class);
+                startActivity(intentConnexion);
+            }
+        });
+
+
     }
 
     @Override

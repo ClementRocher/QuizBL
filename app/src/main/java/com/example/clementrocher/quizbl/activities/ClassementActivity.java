@@ -18,7 +18,7 @@ public class ClassementActivity extends AppCompatActivity {
         retourButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentRetour= new Intent(ClassementActivity.this,AccueilActivity.class);
+                Intent intentRetour = new Intent(ClassementActivity.this, AccueilActivity.class);
                 startActivity(intentRetour);
             }
         });

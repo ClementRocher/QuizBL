@@ -40,7 +40,7 @@ public class SettingsActivity extends AppCompatActivity {
         deconnexionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentDeconnexion = new Intent(SettingsActivity.this,LoginActivity.class);
+                Intent intentDeconnexion = new Intent(SettingsActivity.this, LoginActivity.class);
                 startActivity(intentDeconnexion);
             }
         });

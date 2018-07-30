@@ -43,24 +43,22 @@ public class ConnexionActivity extends AppCompatActivity {
             public void onClick(View view) {
                 emailAttempt = emailEditText.getText().toString();
                 passwordAttempt = passwordEditText.getText().toString();
-                mailMatcher=mailPattern.matcher(emailAttempt);
+                mailMatcher = mailPattern.matcher(emailAttempt);
 
-                if(emailAttempt.matches("") || passwordAttempt.matches("")){
-                    Toast.makeText(ConnexionActivity.this,"Entrez votre mail et votre mot de passe ",Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    if(!mailMatcher.matches()){
-                        Toast.makeText(ConnexionActivity.this,"Le format du mail entré n'est pas valide",Toast.LENGTH_LONG).show();
-                    }
-                    else{
-                        Toast.makeText(ConnexionActivity.this,"Bravo",Toast.LENGTH_SHORT).show();
+                if (emailAttempt.matches("") || passwordAttempt.matches("")) {
+                    Toast.makeText(ConnexionActivity.this, "Entrez votre mail et votre mot de passe ", Toast.LENGTH_SHORT).show();
+                } else {
+                    if (!mailMatcher.matches()) {
+                        Toast.makeText(ConnexionActivity.this, "Le format du mail entré n'est pas valide", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(ConnexionActivity.this, "Bravo", Toast.LENGTH_SHORT).show();
                         /*
                         TODO : vérifier dans la base de données que ce couple mail/password est bon
                         if(couple est bon){
 
                         }
                          */
-                        Intent intentAccueil = new Intent(ConnexionActivity.this,AccueilActivity.class);
+                        Intent intentAccueil = new Intent(ConnexionActivity.this, AccueilActivity.class);
                         /*
                         TODO : Laisser Login et Mdp en SharedPreferences
                          */
