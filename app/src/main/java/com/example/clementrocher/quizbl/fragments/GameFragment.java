@@ -1,109 +1,152 @@
 package com.example.clementrocher.quizbl.fragments;
 
+import android.app.Activity;
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.example.clementrocher.quizbl.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link GameFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link GameFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class GameFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    String frag_intituleQuestion;
+    String frag_reponse1;
+    String frag_reponse2;
+    String frag_reponse3;
+    String frag_reponse4;
+    int frag_numQuestion;
 
-    private OnFragmentInteractionListener mListener;
+    ProgressBar mProgressBar; //barre de progression du timer
+    CountDownTimer mCountDownTimer; //Timer
+    TextView intituleQuestionTextView; //Intitulé de la question
+    Button reponse1Button; //Bouton haut gauche
+    Button reponse2Button; //Bouton haut droite
+    Button reponse3Button; //Bouton bas gauche
+    Button reponse4Button; //Bouton bas droite
+    TextView numQuestionTextView; //Numéro de question
+    boolean clicked = false;
+    int i = 0;
+    FragmentActivity listener;
 
     public GameFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment GameFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static GameFragment newInstance(String param1, String param2) {
-        GameFragment fragment = new GameFragment();
+    public static GameFragment newInstance(String intituleQuestion, String reponse1, String reponse2, String reponse3, String reponse4, int numQuestion) {
+        GameFragment gameFragment = new GameFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+        args.putString("intitule", intituleQuestion);
+        args.putString("reponse1", reponse1);
+        args.putString("reponse2", reponse2);
+        args.putString("reponse3", reponse3);
+        args.putString("reponse4", reponse4);
+        args.putInt("numQuestion", numQuestion);
+        gameFragment.setArguments(args);
+        return gameFragment;
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+    public void onAttach(Context context){
+        super.onAttach(context);
+        if (context instanceof Activity){
+            this.listener = (FragmentActivity) context;
         }
     }
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        frag_intituleQuestion=getArguments().getString("intitule");
+        frag_reponse1=getArguments().getString("reponse1");
+        frag_reponse2=getArguments().getString("reponse2");
+        frag_reponse3=getArguments().getString("reponse3");
+        frag_reponse4=getArguments().getString("reponse4");
+        frag_numQuestion=getArguments().getInt("numQuestion");
+
         return inflater.inflate(R.layout.fragment_game, container, false);
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
+    public void onViewCreated(View view, Bundle savedInstanceState){
+        super.onViewCreated(view, savedInstanceState);
+        intituleQuestionTextView = view.findViewById(R.id.intituleQuestionTextView);
+        reponse1Button = view.findViewById(R.id.reponse1Button);
+        reponse2Button = view.findViewById(R.id.reponse2Button);
+        reponse3Button = view.findViewById(R.id.reponse3Button);
+        reponse4Button = view.findViewById(R.id.reponse4Button);
+        numQuestionTextView = view.findViewById(R.id.numQuestionTextView);
+        mProgressBar = view.findViewById(R.id.progressBar);
+
+        intituleQuestionTextView.setText(frag_intituleQuestion);
+        reponse1Button.setText(frag_reponse1);
+        reponse2Button.setText(frag_reponse2);
+        reponse3Button.setText(frag_reponse3);
+        reponse4Button.setText(frag_reponse4);
+        numQuestionTextView.setText("Question numéro "+ frag_numQuestion);
+
+        //Setters
+        mProgressBar.setProgress(i);
+        reponse1Button.setOnClickListener(buttonClickListener);
+        reponse2Button.setOnClickListener(buttonClickListener);
+        reponse3Button.setOnClickListener(buttonClickListener);
+        reponse4Button.setOnClickListener(buttonClickListener);
+
+        mCountDownTimer = new CountDownTimer(10000, 10) {
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+                i++;
+                mProgressBar.setProgress(i * 100 / (10000 / 10));
+            }
+
+            @Override
+            public void onFinish() {
+
+                mProgressBar.setProgress(100);
+            }
+        };
+        mCountDownTimer.start();
+
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
+        this.listener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
+    private View.OnClickListener buttonClickListener = new View.OnClickListener() {
+
+        @Override
+        public void onClick(View v) {
+            int id = v.getId(); //Récupération id du bouton cliqué
+            mCountDownTimer.cancel(); //Arrêt du timer
+            switch (id) {
+                case R.id.reponse1Button:
+
+                    break;
+                case R.id.reponse2Button:
+                    //code
+                    break;
+                case R.id.reponse3Button:
+                    //code
+                    break;
+                case R.id.reponse4Button:
+
+                    break;
+            }
+        }
+    };
+
 }

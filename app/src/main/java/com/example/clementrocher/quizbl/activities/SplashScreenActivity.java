@@ -36,7 +36,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         TODO : supprimer le timer quand le isLogged est implémenté
          */
 
-        CountDownTimer timerTemp = new CountDownTimer(2000, 10) {
+        CountDownTimer timerTemp = new CountDownTimer(500, 10) {
             @Override
             public void onTick(long l) {
 
