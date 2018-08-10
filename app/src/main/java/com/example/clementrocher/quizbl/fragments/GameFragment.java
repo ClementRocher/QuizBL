@@ -1,11 +1,9 @@
 package com.example.clementrocher.quizbl.fragments;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +16,8 @@ import com.example.clementrocher.quizbl.R;
 
 public class GameFragment extends Fragment {
 
+
+    //Attributs
     String frag_intituleQuestion;
     String frag_reponse1;
     String frag_reponse2;
@@ -35,10 +35,17 @@ public class GameFragment extends Fragment {
     TextView numQuestionTextView; //Numéro de question
     boolean clicked = false;
     int i = 0;
-    FragmentActivity listener;
+    private OnItemSelectedListener gameListener;
 
+    //Constructeur vide obligatoire
     public GameFragment() {
-        // Required empty public constructor
+    }
+
+    //Interface pour interagir avec l'activité
+    public interface OnItemSelectedListener {
+
+
+        public void onButtonClicked(String reponseChoisie);
     }
 
     public static GameFragment newInstance(String intituleQuestion, String reponse1, String reponse2, String reponse3, String reponse4, int numQuestion) {
@@ -55,30 +62,31 @@ public class GameFragment extends Fragment {
     }
 
     @Override
-    public void onAttach(Context context){
+    public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof Activity){
-            this.listener = (FragmentActivity) context;
+        if (context instanceof OnItemSelectedListener) {
+            this.gameListener = (OnItemSelectedListener) context;
+        } else {
+            throw new ClassCastException(context.toString());
         }
     }
-
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        frag_intituleQuestion=getArguments().getString("intitule");
-        frag_reponse1=getArguments().getString("reponse1");
-        frag_reponse2=getArguments().getString("reponse2");
-        frag_reponse3=getArguments().getString("reponse3");
-        frag_reponse4=getArguments().getString("reponse4");
-        frag_numQuestion=getArguments().getInt("numQuestion");
+        frag_intituleQuestion = getArguments().getString("intitule");
+        frag_reponse1 = getArguments().getString("reponse1");
+        frag_reponse2 = getArguments().getString("reponse2");
+        frag_reponse3 = getArguments().getString("reponse3");
+        frag_reponse4 = getArguments().getString("reponse4");
+        frag_numQuestion = getArguments().getInt("numQuestion");
 
         return inflater.inflate(R.layout.fragment_game, container, false);
     }
 
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState){
+    public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         intituleQuestionTextView = view.findViewById(R.id.intituleQuestionTextView);
         reponse1Button = view.findViewById(R.id.reponse1Button);
@@ -93,7 +101,7 @@ public class GameFragment extends Fragment {
         reponse2Button.setText(frag_reponse2);
         reponse3Button.setText(frag_reponse3);
         reponse4Button.setText(frag_reponse4);
-        numQuestionTextView.setText("Question numéro "+ frag_numQuestion);
+        numQuestionTextView.setText("Question numéro " + frag_numQuestion);
 
         //Setters
         mProgressBar.setProgress(i);
@@ -112,7 +120,7 @@ public class GameFragment extends Fragment {
 
             @Override
             public void onFinish() {
-
+                gameListener.onButtonClicked("Pas de réponse");
                 mProgressBar.setProgress(100);
             }
         };
@@ -123,27 +131,29 @@ public class GameFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        this.listener = null;
+        this.gameListener = null;
     }
 
     private View.OnClickListener buttonClickListener = new View.OnClickListener() {
 
         @Override
         public void onClick(View v) {
+
             int id = v.getId(); //Récupération id du bouton cliqué
             mCountDownTimer.cancel(); //Arrêt du timer
+
             switch (id) {
                 case R.id.reponse1Button:
-
+                    gameListener.onButtonClicked(frag_reponse1);
                     break;
                 case R.id.reponse2Button:
-                    //code
+                    gameListener.onButtonClicked(frag_reponse2);
                     break;
                 case R.id.reponse3Button:
-                    //code
+                    gameListener.onButtonClicked(frag_reponse3);
                     break;
                 case R.id.reponse4Button:
-
+                    gameListener.onButtonClicked(frag_reponse4);
                     break;
             }
         }

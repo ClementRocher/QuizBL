@@ -12,6 +12,9 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.clementrocher.quizbl.R;
+import com.example.clementrocher.quizbl.models.Utilisateur;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +32,8 @@ public class InscriptionActivity extends AppCompatActivity implements AdapterVie
     String departement;
     String commune;
 
+    Utilisateur utilisateur;
+
     //Containers
     Button inscriptionButton;
     EditText nomEditText;
@@ -41,10 +46,18 @@ public class InscriptionActivity extends AppCompatActivity implements AdapterVie
     EditText departementEditText;
     EditText communeEditText;
 
+    //Database
+    FirebaseDatabase db;
+    DatabaseReference utilisateurReference = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inscription);
+
+        //Instanciation DB
+        db = FirebaseDatabase.getInstance();
+        utilisateurReference = db.getReference();
 
         //Sérialisation
         inscriptionButton = findViewById(R.id.inscriptionBouton);
@@ -101,12 +114,13 @@ public class InscriptionActivity extends AppCompatActivity implements AdapterVie
 
                 //Si les conditions sont validées
                 if (verif) {
-                    Intent intentInscription = new Intent(InscriptionActivity.this, AccueilActivity.class);
-                    /* TODO : Insérer le profil créé dans la BDD
 
-                     */
-
-                    startActivity(intentInscription);
+                    String key = utilisateurReference.push().getKey();
+                    utilisateur = new Utilisateur(nom,prenom,mail,password,mandat,circonscription,departement,commune);
+                    utilisateurReference.child("utilisateurs").child(key).setValue(utilisateur);
+                    Toast.makeText(InscriptionActivity.this, "USER ADDED", Toast.LENGTH_SHORT).show();
+                    //Intent intentInscription = new Intent(InscriptionActivity.this, AccueilActivity.class);
+                    //startActivity(intentInscription);
                 }
             }
         });
