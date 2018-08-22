@@ -2,6 +2,7 @@ package com.example.clementrocher.quizbl.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -10,6 +11,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.clementrocher.quizbl.R;
+import com.example.clementrocher.quizbl.models.Utilisateur;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -27,9 +34,27 @@ public class ConnexionActivity extends AppCompatActivity {
     EditText emailEditText;
     EditText passwordEditText;
 
+    private DatabaseReference db;
+    private DatabaseReference utilisateurReference;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connexion);
+
+        //Instanciation DB
+        db = FirebaseDatabase.getInstance().getReference();
+        utilisateurReference = FirebaseDatabase.getInstance().getReference("utilisateurs");
+        utilisateurReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Utilisateur user = dataSnapshot.getValue(Utilisateur.class);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         //Instanciation
         connexionButton = findViewById(R.id.connexionButton);
@@ -54,10 +79,9 @@ public class ConnexionActivity extends AppCompatActivity {
                         Toast.makeText(ConnexionActivity.this, "Bravo", Toast.LENGTH_SHORT).show();
                         /*
                         TODO : vérifier dans la base de données que ce couple mail/password est bon
-                        if(couple est bon){
+                        */
 
-                        }
-                         */
+
                         Intent intentAccueil = new Intent(ConnexionActivity.this, AccueilActivity.class);
                         /*
                         TODO : Laisser Login et Mdp en SharedPreferences

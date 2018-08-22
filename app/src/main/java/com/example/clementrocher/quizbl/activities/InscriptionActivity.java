@@ -47,8 +47,8 @@ public class InscriptionActivity extends AppCompatActivity implements AdapterVie
     EditText communeEditText;
 
     //Database
-    FirebaseDatabase db;
-    DatabaseReference utilisateurReference = null;
+    private DatabaseReference db;
+    private DatabaseReference utilisateurReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +56,8 @@ public class InscriptionActivity extends AppCompatActivity implements AdapterVie
         setContentView(R.layout.activity_inscription);
 
         //Instanciation DB
-        db = FirebaseDatabase.getInstance();
-        utilisateurReference = db.getReference();
+        db = FirebaseDatabase.getInstance().getReference();
+        utilisateurReference = FirebaseDatabase.getInstance().getReference("utilisateurs");
 
         //Sérialisation
         inscriptionButton = findViewById(R.id.inscriptionBouton);
@@ -115,12 +115,11 @@ public class InscriptionActivity extends AppCompatActivity implements AdapterVie
                 //Si les conditions sont validées
                 if (verif) {
 
-                    String key = utilisateurReference.push().getKey();
                     utilisateur = new Utilisateur(nom,prenom,mail,password,mandat,circonscription,departement,commune);
-                    utilisateurReference.child("utilisateurs").child(key).setValue(utilisateur);
-                    Toast.makeText(InscriptionActivity.this, "USER ADDED", Toast.LENGTH_SHORT).show();
-                    //Intent intentInscription = new Intent(InscriptionActivity.this, AccueilActivity.class);
-                    //startActivity(intentInscription);
+
+                    utilisateurReference.push().setValue(utilisateur);
+                    Intent intentInscription = new Intent(InscriptionActivity.this, AccueilActivity.class);
+                    startActivity(intentInscription);
                 }
             }
         });

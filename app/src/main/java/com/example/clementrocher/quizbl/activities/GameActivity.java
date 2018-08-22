@@ -122,9 +122,9 @@ public class GameActivity extends AppCompatActivity implements GameFragment.OnIt
 */
     }
 
-/*
+
     @Override
     public void onBackPressed() {
-
-    }*/
+        //do nothing
+    }
 }
