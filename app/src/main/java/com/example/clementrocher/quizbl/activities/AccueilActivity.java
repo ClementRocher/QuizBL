@@ -14,9 +14,9 @@ public class AccueilActivity extends AppCompatActivity {
 
     TextView profilAffichageTextView;
     ImageButton profilButton;
-    ImageButton settingsButton;
     Button gameButton;
     Button classementButton;
+    Button deconnexionButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +25,11 @@ public class AccueilActivity extends AppCompatActivity {
 
         //Instanciation
         profilButton= findViewById(R.id.profilButton);
-        settingsButton = findViewById(R.id.settingsButton);
         gameButton = findViewById(R.id.gameButton);
         classementButton = findViewById(R.id.classementButton);
         profilAffichageTextView = findViewById(R.id.profilAffichageTextView);
+        deconnexionButton = findViewById(R.id.deconnexionButton);
+
 
         //Setters
         profilButton.setOnClickListener(new View.OnClickListener() {
@@ -39,11 +40,11 @@ public class AccueilActivity extends AppCompatActivity {
             }
         });
 
-        settingsButton.setOnClickListener(new View.OnClickListener() {
+        deconnexionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentSettings = new Intent(AccueilActivity.this,SettingsActivity.class);
-                startActivity(intentSettings);
+                Intent intentDeconnexion = new Intent(AccueilActivity.this, LoginActivity.class);
+                startActivity(intentDeconnexion);
             }
         });
 
@@ -64,6 +65,7 @@ public class AccueilActivity extends AppCompatActivity {
                 startActivity(intentClassement);
             }
         });
+
 
         /*
         TODO : Récuperer le nom et prénom en BDD et les afficher dans profilAffichageTextView

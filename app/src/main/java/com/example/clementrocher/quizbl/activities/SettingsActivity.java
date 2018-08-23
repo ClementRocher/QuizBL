@@ -14,12 +14,10 @@ import com.example.clementrocher.quizbl.R;
 public class SettingsActivity extends AppCompatActivity {
 
     Dialog dialog;
-    Button connexionFbButton;
-    Button notificationsButton;
-    Button sonButton;
+
     Button aideButton;
     Button conditionsButton;
-    Button deconnexionButton;
+
     Button quitterButton;
     TextView alertbox_title;
 
@@ -29,21 +27,12 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
 
         //Instanciation
-        connexionFbButton = findViewById(R.id.connexionFbButton);
-        notificationsButton = findViewById(R.id.notifButton);
-        sonButton = findViewById(R.id.sonButton);
+
         aideButton = findViewById(R.id.aideButton);
         conditionsButton = findViewById(R.id.conditionsButton);
-        deconnexionButton = findViewById(R.id.deconnexionButton);
 
         //Setters
-        deconnexionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intentDeconnexion = new Intent(SettingsActivity.this, LoginActivity.class);
-                startActivity(intentDeconnexion);
-            }
-        });
+
 
         conditionsButton.setOnClickListener(new View.OnClickListener() {
             @Override

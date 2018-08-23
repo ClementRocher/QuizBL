@@ -47,12 +47,12 @@ public class GameActivity extends AppCompatActivity implements GameFragment.OnIt
         super.onStart();
         //do {
         fetchData(intituleQuestion, reponse1, reponse2, reponse3, reponse4, bonneReponse);
-        intituleQuestion = "la question est";
-        reponse1 = "a";
-        reponse2 = "b";
-        reponse3 = "d";
-        reponse4 = "c";
-        bonneReponse= "a";
+        intituleQuestion = "La réforme des régimes matrimoniaux de 1965 a attribué de nouveaux droits aux femmes . Lesquels ?";
+        reponse1 = "Le droit de vote";
+        reponse2 = "Le droit à un compte bancaire";
+        reponse3 = "Le droit d'éligibilité";
+        reponse4 = "Le droit de conduire";
+        bonneReponse= "Le droit à un compte bancaire";
 
 
         displayGameFragment(intituleQuestion, reponse1, reponse2, reponse3, reponse4,numQuestion);
@@ -107,7 +107,7 @@ public class GameActivity extends AppCompatActivity implements GameFragment.OnIt
     @Override
     public void onButtonClicked(String reponseChoisie) {
         reponseUtilisateur = reponseChoisie;
-
+        Toast.makeText(GameActivity.this, "La réponse choisie est : "+reponseUtilisateur, Toast.LENGTH_LONG).show();
 
 
         /*
@@ -122,9 +122,10 @@ public class GameActivity extends AppCompatActivity implements GameFragment.OnIt
 */
     }
 
-
+/*
     @Override
     public void onBackPressed() {
         //do nothing
     }
+    */
 }
