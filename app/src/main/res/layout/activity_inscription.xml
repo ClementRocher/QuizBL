@@ -19,11 +19,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_gravity="top"
             tools:layout_editor_absoluteX="8dp">
 
             <ImageView
                 android:id="@+id/registerLogo"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/descLogo"
                 app:layout_constraintStart_toStartOf="parent"
@@ -36,6 +37,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
                 android:text="Remplissez vos informations pour vous inscrire" />
 
             <EditText
@@ -44,6 +47,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Nom"
+                android:layout_marginTop="10dp"
                 android:inputType="textPersonName" />
 
             <EditText
@@ -52,6 +56,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Prénom"
+                android:layout_marginTop="10dp"
                 android:inputType="textPersonName" />
 
             <EditText
@@ -60,6 +65,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Email"
+                android:layout_marginTop="10dp"
                 android:inputType="textEmailAddress" />
 
             <EditText
@@ -68,6 +74,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Mot de Passe"
+                android:layout_marginTop="10dp"
                 android:inputType="textPassword" />
 
             <EditText
@@ -75,11 +82,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Mot de Passe"
+                android:hint="Vérifiez votre mot de passe"
+                android:layout_marginTop="10dp"
                 android:inputType="textPassword" />
 
             <Spinner
                 android:id="@+id/mandatSpinner"
+                android:layout_marginTop="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -88,6 +97,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
                 android:text="Entrez votre circonscription" />
 
             <EditText
@@ -96,6 +107,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Var 7"
+                android:layout_marginTop="5dp"
                 android:inputType="textPersonName" />
 
             <TextView
@@ -103,6 +115,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
                 android:text="Entrez votre département" />
 
             <EditText
@@ -110,6 +124,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:layout_marginTop="5dp"
                 android:hint="Saône et Loire"
                 android:inputType="textPersonName" />
 
@@ -118,6 +133,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
                 android:text="Entrez votre commune" />
 
             <EditText
@@ -125,6 +142,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:layout_marginTop="5dp"
                 android:hint="Annecy"
                 android:inputType="textPersonName" />
 
@@ -132,6 +150,8 @@
                 android:id="@+id/inscriptionBouton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/mybutton"
                 android:text="Button" />
 
         </LinearLayout>

@@ -14,9 +14,10 @@ public class AccueilActivity extends AppCompatActivity {
 
     TextView profilAffichageTextView;
     ImageButton profilButton;
+    ImageButton deconnexionButton;
     Button gameButton;
     Button classementButton;
-    Button deconnexionButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

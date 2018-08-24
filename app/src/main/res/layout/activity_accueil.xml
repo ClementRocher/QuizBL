@@ -28,15 +28,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/mybutton"
-            app:srcCompat="@android:drawable/btn_star_big_on" />
+            app:srcCompat="@android:drawable/ic_menu_myplaces" />
 
-        <Button
-            android:id="@+id/deconnexionButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/mybutton"
-            android:text="Déconnexion" />
+
     </LinearLayout>
 
     <ImageView
@@ -106,7 +100,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Comment Jouer : " />
+                android:text="Comment Jouer :  " />
 
             <Button
                 android:id="@+id/button2"
@@ -132,7 +126,7 @@
                 android:text="Déconnexion" />
 
             <ImageButton
-                android:id="@+id/imageButton"
+                android:id="@+id/deconnexionButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
