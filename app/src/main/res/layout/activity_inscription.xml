@@ -18,8 +18,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_gravity="top"
+            android:orientation="vertical"
             tools:layout_editor_absoluteX="8dp">
 
             <ImageView
@@ -36,95 +36,95 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:gravity="center"
                 android:layout_marginTop="10dp"
-                android:textSize="20sp"
-                android:text="Remplissez vos informations pour vous inscrire" />
+                android:gravity="center"
+                android:text="Remplissez vos informations pour vous inscrire"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/nomEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:ems="10"
                 android:hint="Nom"
-                android:layout_marginTop="10dp"
                 android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/prenomEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:ems="10"
                 android:hint="Prénom"
-                android:layout_marginTop="10dp"
                 android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/emailEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:ems="10"
                 android:hint="Email"
-                android:layout_marginTop="10dp"
                 android:inputType="textEmailAddress" />
 
             <EditText
                 android:id="@+id/passwordEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:ems="10"
                 android:hint="Mot de Passe"
-                android:layout_marginTop="10dp"
                 android:inputType="textPassword" />
 
             <EditText
                 android:id="@+id/passwordCheckEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:ems="10"
                 android:hint="Vérifiez votre mot de passe"
-                android:layout_marginTop="10dp"
                 android:inputType="textPassword" />
 
             <Spinner
                 android:id="@+id/mandatSpinner"
-                android:layout_marginTop="15dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp" />
 
             <TextView
                 android:id="@+id/circonscriptionTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:gravity="center"
-                android:layout_marginTop="10dp"
-                android:textSize="20sp"
-                android:text="Entrez votre circonscription" />
+                android:text="Entrez votre circonscription"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/circonscriptionEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:ems="10"
                 android:hint="Var 7"
-                android:layout_marginTop="5dp"
                 android:inputType="textPersonName" />
 
             <TextView
                 android:id="@+id/departementTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_marginTop="10dp"
-                android:textSize="20sp"
-                android:text="Entrez votre département" />
+                android:gravity="center"
+                android:text="Entrez votre département"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/departementEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
                 android:layout_marginTop="5dp"
+                android:ems="10"
                 android:hint="Saône et Loire"
                 android:inputType="textPersonName" />
 
@@ -132,27 +132,69 @@
                 android:id="@+id/communeTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_marginTop="10dp"
-                android:textSize="20sp"
-                android:text="Entrez votre commune" />
+                android:gravity="center"
+                android:text="Entrez votre commune"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/communeEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
                 android:layout_marginTop="5dp"
+                android:ems="10"
                 android:hint="Annecy"
                 android:inputType="textPersonName" />
 
-            <Button
-                android:id="@+id/inscriptionBouton"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cliquez pour consulter nos conditions \n d'utilisations : " />
+
+                <Button
+                    android:id="@+id/conditionsButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/mybutton"
+                    android:text="Conditions \nd'utilisation" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/accepterConditionsTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="En cochant cette case, vous reconnaissez \navoir lu et accepté nos conditions d'utilisations" />
+
+                <CheckBox
+                    android:id="@+id/accepterConditionsCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/boutons" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/inscriptionBouton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/mybutton"
-                android:text="Button" />
+                android:text="Je m'inscris" />
 
         </LinearLayout>
     </ScrollView>

@@ -25,7 +25,7 @@ public class AccueilActivity extends AppCompatActivity {
         setContentView(R.layout.activity_accueil);
 
         //Instanciation
-        profilButton= findViewById(R.id.profilButton);
+        profilButton = findViewById(R.id.profilButton);
         gameButton = findViewById(R.id.gameButton);
         classementButton = findViewById(R.id.classementButton);
         profilAffichageTextView = findViewById(R.id.profilAffichageTextView);
@@ -36,7 +36,7 @@ public class AccueilActivity extends AppCompatActivity {
         profilButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentProfil = new Intent(AccueilActivity.this,ProfilActivity.class);
+                Intent intentProfil = new Intent(AccueilActivity.this, ProfilActivity.class);
                 startActivity(intentProfil);
             }
         });
@@ -53,7 +53,7 @@ public class AccueilActivity extends AppCompatActivity {
         gameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentGame = new Intent(AccueilActivity.this,GameActivity.class);
+                Intent intentGame = new Intent(AccueilActivity.this, GameActivity.class);
                 startActivity(intentGame);
             }
         });
@@ -62,7 +62,7 @@ public class AccueilActivity extends AppCompatActivity {
         classementButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentClassement = new Intent(AccueilActivity.this,ClassementActivity.class);
+                Intent intentClassement = new Intent(AccueilActivity.this, ClassementActivity.class);
                 startActivity(intentClassement);
             }
         });
@@ -74,7 +74,7 @@ public class AccueilActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onBackPressed(){
+    public void onBackPressed() {
         //do nothing
         //Empecher le retour à la page d'inscription ou de connexion
     }
