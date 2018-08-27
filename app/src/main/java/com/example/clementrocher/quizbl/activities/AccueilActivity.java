@@ -41,7 +41,7 @@ public class AccueilActivity extends AppCompatActivity {
         setContentView(R.layout.activity_accueil);
 
 
-        sharedPreferences = getBaseContext().getSharedPreferences(PREFS,MODE_PRIVATE);
+        sharedPreferences = getBaseContext().getSharedPreferences(PREFS, MODE_PRIVATE);
 
         //Instanciation
         profilButton = findViewById(R.id.profilButton);
@@ -50,10 +50,10 @@ public class AccueilActivity extends AppCompatActivity {
         profilAffichageTextView = findViewById(R.id.profilAffichageTextView);
         deconnexionButton = findViewById(R.id.deconnexionButton);
 
-        nomUtilisateur = sharedPreferences.getString(PREFS_NOM,null);
-        prenomUtilisateur = sharedPreferences.getString(PREFS_PRENOM,null);
+        nomUtilisateur = sharedPreferences.getString(PREFS_NOM, null);
+        prenomUtilisateur = sharedPreferences.getString(PREFS_PRENOM, null);
 
-        profilAffichageTextView.setText(nomUtilisateur +", "+prenomUtilisateur);
+        profilAffichageTextView.setText(prenomUtilisateur + ", " + nomUtilisateur);
 
         //Setters
         profilButton.setOnClickListener(new View.OnClickListener() {
@@ -110,7 +110,7 @@ public class AccueilActivity extends AppCompatActivity {
                         sharedPreferences.edit().remove(PREFS_PRENOM).apply();
                         sharedPreferences.edit().remove(PREFS_NOM).apply();
                         sharedPreferences.edit().remove(PREFS_MAIL).apply();
-                        Intent intentDeco = new Intent(AccueilActivity.this,LoginActivity.class);
+                        Intent intentDeco = new Intent(AccueilActivity.this, LoginActivity.class);
                         startActivity(intentDeco);
                     }
                 });

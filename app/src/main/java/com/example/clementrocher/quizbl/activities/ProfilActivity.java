@@ -1,6 +1,7 @@
 package com.example.clementrocher.quizbl.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,10 +20,23 @@ public class ProfilActivity extends AppCompatActivity {
     TextView mailTextView;
     Button editMailButton;
 
+    private static final String PREFS = "PREFS";
+    private static final String PREFS_NOM = "PREFS_NOM";
+    private static final String PREFS_PRENOM = "PREFS_PRENOM";
+    private static final String PREFS_MAIL = "PREFS_MAIL";
+    SharedPreferences sharedPreferences;
+
+    String nomProfil;
+    String prenomProfil;
+    String mailProfil;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profil);
+
+        sharedPreferences = getBaseContext().getSharedPreferences(PREFS, MODE_PRIVATE);
 
         //Instanciation
         editMailButton = findViewById(R.id.editMailButton);
@@ -48,5 +62,18 @@ public class ProfilActivity extends AppCompatActivity {
         /*
         TODO : Récupérer les infos du profil en BDD et les afficher
          */
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        nomProfil = sharedPreferences.getString(PREFS_NOM, null);
+        prenomProfil = sharedPreferences.getString(PREFS_PRENOM, null);
+        mailProfil = sharedPreferences.getString(PREFS_MAIL, null);
+
+        nomTextView.setText(nomProfil);
+        prenomTextView.setText(prenomProfil);
+        mailTextView.setText(mailProfil);
     }
 }

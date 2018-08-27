@@ -22,7 +22,6 @@ public class LoginActivity extends AppCompatActivity {
         connexionButton = findViewById(R.id.goToConnexionButton);
 
 
-
         //Bouton d'acces rapide au menu principal
         /*
         Todo : supprimer ce bouton absolument quand le stayLogged sera pret
@@ -31,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
         accesrapideBouton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentAcces = new Intent(LoginActivity.this,AccueilActivity.class);
+                Intent intentAcces = new Intent(LoginActivity.this, AccueilActivity.class);
                 startActivity(intentAcces);
             }
         });
@@ -46,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
         inscriptionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentInscription = new Intent(LoginActivity.this,InscriptionActivity.class);
+                Intent intentInscription = new Intent(LoginActivity.this, InscriptionActivity.class);
                 startActivity(intentInscription);
             }
         });
@@ -55,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
         connexionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentConnexion = new Intent(LoginActivity.this,ConnexionActivity.class);
+                Intent intentConnexion = new Intent(LoginActivity.this, ConnexionActivity.class);
                 startActivity(intentConnexion);
             }
         });
@@ -64,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onBackPressed(){
+    public void onBackPressed() {
         //do nothing
         //Pour empêcher le retour après déconnexion
     }

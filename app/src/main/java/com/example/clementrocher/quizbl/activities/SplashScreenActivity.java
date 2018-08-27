@@ -16,12 +16,13 @@ public class SplashScreenActivity extends AppCompatActivity {
     private static final String PREFS_PRENOM = "PREFS_PRENOM";
     private static final String PREFS_MAIL = "PREFS_MAIL";
     SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-        sharedPreferences = getBaseContext().getSharedPreferences(PREFS,MODE_PRIVATE);
+        sharedPreferences = getBaseContext().getSharedPreferences(PREFS, MODE_PRIVATE);
 
     }
 
@@ -30,14 +31,12 @@ public class SplashScreenActivity extends AppCompatActivity {
         super.onStart();
 
 
-        if (sharedPreferences.contains(PREFS_NOM) && sharedPreferences.contains(PREFS_PRENOM) && sharedPreferences.contains(PREFS_MAIL)){
+        if (sharedPreferences.contains(PREFS_NOM) && sharedPreferences.contains(PREFS_PRENOM) && sharedPreferences.contains(PREFS_MAIL)) {
 
-            Intent goToAccueilIntent = new Intent(SplashScreenActivity.this,AccueilActivity.class);
+            Intent goToAccueilIntent = new Intent(SplashScreenActivity.this, AccueilActivity.class);
             startActivity(goToAccueilIntent);
-        }
-
-        else{
-            Intent goToLoginIntent = new Intent(SplashScreenActivity.this,LoginActivity.class);
+        } else {
+            Intent goToLoginIntent = new Intent(SplashScreenActivity.this, LoginActivity.class);
             startActivity(goToLoginIntent);
         }
 

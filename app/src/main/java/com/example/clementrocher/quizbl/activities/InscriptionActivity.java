@@ -73,7 +73,7 @@ public class InscriptionActivity extends AppCompatActivity implements AdapterVie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inscription);
 
-        sharedPreferences = getBaseContext().getSharedPreferences(PREFS,MODE_PRIVATE);
+        sharedPreferences = getBaseContext().getSharedPreferences(PREFS, MODE_PRIVATE);
 
         //Instanciation DB
         db = FirebaseDatabase.getInstance().getReference();
@@ -163,8 +163,8 @@ public class InscriptionActivity extends AppCompatActivity implements AdapterVie
                     verif = false;
                 }
 
-                if(!(accepterConditionsCheckbox.isChecked())){
-                    Toast.makeText(InscriptionActivity.this,"Vous n'avez pas accepté les conditions d'utilisations",Toast.LENGTH_SHORT).show();
+                if (!(accepterConditionsCheckbox.isChecked())) {
+                    Toast.makeText(InscriptionActivity.this, "Vous n'avez pas accepté les conditions d'utilisations", Toast.LENGTH_SHORT).show();
                     verif = false;
                 }
 
@@ -175,7 +175,7 @@ public class InscriptionActivity extends AppCompatActivity implements AdapterVie
                             .edit()
                             .putString(PREFS_NOM, nom)
                             .putString(PREFS_PRENOM, prenom)
-                            .putString(PREFS_MAIL,mail)
+                            .putString(PREFS_MAIL, mail)
                             .apply();
 
                     utilisateur = new Utilisateur(nom, prenom, mail, password, mandat, circonscription, departement, commune);

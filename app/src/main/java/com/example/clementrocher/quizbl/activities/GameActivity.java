@@ -52,10 +52,10 @@ public class GameActivity extends AppCompatActivity implements GameFragment.OnIt
         reponse2 = "Le droit à un compte bancaire";
         reponse3 = "Le droit d'éligibilité";
         reponse4 = "Le droit de conduire";
-        bonneReponse= "Le droit à un compte bancaire";
+        bonneReponse = "Le droit à un compte bancaire";
 
 
-        displayGameFragment(intituleQuestion, reponse1, reponse2, reponse3, reponse4,numQuestion);
+        displayGameFragment(intituleQuestion, reponse1, reponse2, reponse3, reponse4, numQuestion);
         //displayReponseFragment(reponseUtilisateur,bonneReponse);
         numQuestion++;
 
@@ -107,7 +107,7 @@ public class GameActivity extends AppCompatActivity implements GameFragment.OnIt
     @Override
     public void onButtonClicked(String reponseChoisie) {
         reponseUtilisateur = reponseChoisie;
-        Toast.makeText(GameActivity.this, "La réponse choisie est : "+reponseUtilisateur, Toast.LENGTH_LONG).show();
+        Toast.makeText(GameActivity.this, "La réponse choisie est : " + reponseUtilisateur, Toast.LENGTH_LONG).show();
 
 
         /*

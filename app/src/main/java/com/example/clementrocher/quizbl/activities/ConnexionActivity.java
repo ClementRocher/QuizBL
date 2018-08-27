@@ -51,7 +51,7 @@ public class ConnexionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connexion);
 
-        sharedPreferences = getBaseContext().getSharedPreferences(PREFS,MODE_PRIVATE);
+        sharedPreferences = getBaseContext().getSharedPreferences(PREFS, MODE_PRIVATE);
 
         //Instanciation DB
         db = FirebaseDatabase.getInstance().getReference();
@@ -95,8 +95,6 @@ public class ConnexionActivity extends AppCompatActivity {
                         */
 
                         /*
-                        TODO : Laisser Login et Mdp en SharedPreferences
-
                         sharedPreferences.edit()
                                 .putString(PREFS_NOM,nomUtilisateur)
                                 .putString(PREFS_PRENOM,prenomUtilisateur)
