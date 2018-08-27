@@ -2,6 +2,7 @@ package com.example.clementrocher.quizbl.activities;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,6 +25,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InscriptionActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+
+
+    private static final String PREFS = "PREFS";
+    private static final String PREFS_NOM = "PREFS_NOM";
+    private static final String PREFS_PRENOM = "PREFS_PRENOM";
+    SharedPreferences sharedPreferences;
 
     //Informations d'inscription
     String nom;
@@ -64,6 +71,8 @@ public class InscriptionActivity extends AppCompatActivity implements AdapterVie
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inscription);
+
+        sharedPreferences = getBaseContext().getSharedPreferences(PREFS,MODE_PRIVATE);
 
         //Instanciation DB
         db = FirebaseDatabase.getInstance().getReference();
@@ -160,6 +169,12 @@ public class InscriptionActivity extends AppCompatActivity implements AdapterVie
 
                 //Si les conditions sont validées
                 if (verif) {
+
+                    sharedPreferences
+                            .edit()
+                            .putString(PREFS_NOM, nom)
+                            .putString(PREFS_PRENOM, prenom)
+                            .apply();
 
                     utilisateur = new Utilisateur(nom, prenom, mail, password, mandat, circonscription, departement, commune);
 

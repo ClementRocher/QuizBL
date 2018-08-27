@@ -2,6 +2,7 @@ package com.example.clementrocher.quizbl.activities;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,11 +25,22 @@ public class AccueilActivity extends AppCompatActivity {
     Dialog dialogDeco;
     TextView alertbox_quit_text;
 
+    String nomUtilisateur;
+    String prenomUtilisateur;
+
+    private static final String PREFS = "PREFS";
+    private static final String PREFS_NOM = "PREFS_NOM";
+    private static final String PREFS_PRENOM = "PREFS_PRENOM";
+    SharedPreferences sharedPreferences;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
+
+
+        sharedPreferences = getBaseContext().getSharedPreferences(PREFS,MODE_PRIVATE);
 
         //Instanciation
         profilButton = findViewById(R.id.profilButton);
@@ -37,6 +49,10 @@ public class AccueilActivity extends AppCompatActivity {
         profilAffichageTextView = findViewById(R.id.profilAffichageTextView);
         deconnexionButton = findViewById(R.id.deconnexionButton);
 
+        nomUtilisateur = sharedPreferences.getString(PREFS_NOM,null);
+        prenomUtilisateur = sharedPreferences.getString(PREFS_PRENOM,null);
+
+        profilAffichageTextView.setText(nomUtilisateur +", "+prenomUtilisateur);
 
         //Setters
         profilButton.setOnClickListener(new View.OnClickListener() {
@@ -88,6 +104,10 @@ public class AccueilActivity extends AppCompatActivity {
                 decoButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+
+
+                        sharedPreferences.edit().remove(PREFS_PRENOM).apply();
+                        sharedPreferences.edit().remove(PREFS_NOM).apply();
                         Intent intentDeco = new Intent(AccueilActivity.this,LoginActivity.class);
                         startActivity(intentDeco);
                     }
@@ -96,10 +116,7 @@ public class AccueilActivity extends AppCompatActivity {
                 dialogDeco.show();
             }
         });
-
-        /*
-        TODO : Récuperer le nom et prénom en BDD et les afficher dans profilAffichageTextView
-         */
+        
     }
 
     @Override
