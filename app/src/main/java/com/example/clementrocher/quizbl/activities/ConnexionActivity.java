@@ -1,6 +1,7 @@
 package com.example.clementrocher.quizbl.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -37,9 +38,20 @@ public class ConnexionActivity extends AppCompatActivity {
     private DatabaseReference db;
     private DatabaseReference utilisateurReference;
 
+    private static final String PREFS = "PREFS";
+    private static final String PREFS_NOM = "PREFS_NOM";
+    private static final String PREFS_PRENOM = "PREFS_PRENOM";
+    private static final String PREFS_MAIL = "PREFS_MAIL";
+    SharedPreferences sharedPreferences;
+
+    String nomUtilisateur;
+    String prenomUtilisateur;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connexion);
+
+        sharedPreferences = getBaseContext().getSharedPreferences(PREFS,MODE_PRIVATE);
 
         //Instanciation DB
         db = FirebaseDatabase.getInstance().getReference();
@@ -79,13 +91,19 @@ public class ConnexionActivity extends AppCompatActivity {
                         Toast.makeText(ConnexionActivity.this, "Bravo", Toast.LENGTH_SHORT).show();
                         /*
                         TODO : vérifier dans la base de données que ce couple mail/password est bon
+                        TODO : récupérer le nom et prénom correspondant
                         */
 
-
-                        Intent intentAccueil = new Intent(ConnexionActivity.this, AccueilActivity.class);
                         /*
                         TODO : Laisser Login et Mdp en SharedPreferences
-                         */
+
+                        sharedPreferences.edit()
+                                .putString(PREFS_NOM,nomUtilisateur)
+                                .putString(PREFS_PRENOM,prenomUtilisateur)
+                                .putString(PREFS_MAIL,emailAttempt)
+                                .apply();
+                                */
+                        Intent intentAccueil = new Intent(ConnexionActivity.this, AccueilActivity.class);
                         startActivity(intentAccueil);
                     }
                 }

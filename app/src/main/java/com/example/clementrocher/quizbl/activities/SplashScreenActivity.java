@@ -14,6 +14,7 @@ public class SplashScreenActivity extends AppCompatActivity {
     private static final String PREFS = "PREFS";
     private static final String PREFS_NOM = "PREFS_NOM";
     private static final String PREFS_PRENOM = "PREFS_PRENOM";
+    private static final String PREFS_MAIL = "PREFS_MAIL";
     SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         super.onStart();
 
 
-        if (sharedPreferences.contains(PREFS_NOM) && sharedPreferences.contains(PREFS_PRENOM)){
+        if (sharedPreferences.contains(PREFS_NOM) && sharedPreferences.contains(PREFS_PRENOM) && sharedPreferences.contains(PREFS_MAIL)){
 
             Intent goToAccueilIntent = new Intent(SplashScreenActivity.this,AccueilActivity.class);
             startActivity(goToAccueilIntent);

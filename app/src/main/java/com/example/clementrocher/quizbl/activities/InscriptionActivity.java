@@ -30,6 +30,7 @@ public class InscriptionActivity extends AppCompatActivity implements AdapterVie
     private static final String PREFS = "PREFS";
     private static final String PREFS_NOM = "PREFS_NOM";
     private static final String PREFS_PRENOM = "PREFS_PRENOM";
+    private static final String PREFS_MAIL = "PREFS_MAIL";
     SharedPreferences sharedPreferences;
 
     //Informations d'inscription
@@ -174,6 +175,7 @@ public class InscriptionActivity extends AppCompatActivity implements AdapterVie
                             .edit()
                             .putString(PREFS_NOM, nom)
                             .putString(PREFS_PRENOM, prenom)
+                            .putString(PREFS_MAIL,mail)
                             .apply();
 
                     utilisateur = new Utilisateur(nom, prenom, mail, password, mandat, circonscription, departement, commune);

@@ -31,6 +31,7 @@ public class AccueilActivity extends AppCompatActivity {
     private static final String PREFS = "PREFS";
     private static final String PREFS_NOM = "PREFS_NOM";
     private static final String PREFS_PRENOM = "PREFS_PRENOM";
+    private static final String PREFS_MAIL = "PREFS_MAIL";
     SharedPreferences sharedPreferences;
 
 
@@ -108,6 +109,7 @@ public class AccueilActivity extends AppCompatActivity {
 
                         sharedPreferences.edit().remove(PREFS_PRENOM).apply();
                         sharedPreferences.edit().remove(PREFS_NOM).apply();
+                        sharedPreferences.edit().remove(PREFS_MAIL).apply();
                         Intent intentDeco = new Intent(AccueilActivity.this,LoginActivity.class);
                         startActivity(intentDeco);
                     }
@@ -116,7 +118,7 @@ public class AccueilActivity extends AppCompatActivity {
                 dialogDeco.show();
             }
         });
-        
+
     }
 
     @Override
