@@ -53,7 +53,7 @@ public class AccueilActivity extends AppCompatActivity {
         nomUtilisateur = sharedPreferences.getString(PREFS_NOM, null);
         prenomUtilisateur = sharedPreferences.getString(PREFS_PRENOM, null);
 
-        profilAffichageTextView.setText(prenomUtilisateur + ", " + nomUtilisateur);
+        profilAffichageTextView.setText(prenomUtilisateur + " " + nomUtilisateur);
 
         //Setters
         profilButton.setOnClickListener(new View.OnClickListener() {
