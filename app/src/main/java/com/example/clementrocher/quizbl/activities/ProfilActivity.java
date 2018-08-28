@@ -2,14 +2,21 @@ package com.example.clementrocher.quizbl.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.clementrocher.quizbl.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class ProfilActivity extends AppCompatActivity {
 
@@ -18,7 +25,7 @@ public class ProfilActivity extends AppCompatActivity {
     TextView prenomTextView;
     TextView mandatTextView;
     TextView mailTextView;
-    Button editMailButton;
+    Button editInfosButton;
 
     private static final String PREFS = "PREFS";
     private static final String PREFS_NOM = "PREFS_NOM";
@@ -26,9 +33,15 @@ public class ProfilActivity extends AppCompatActivity {
     private static final String PREFS_MAIL = "PREFS_MAIL";
     SharedPreferences sharedPreferences;
 
+    DatabaseReference utilisateurReference;
+
     String nomProfil;
     String prenomProfil;
     String mailProfil;
+    String retrieveMandat;
+    String retrieveCirconscription;
+    String retrieveDepartement;
+    String retrieveCommune;
 
 
     @Override
@@ -37,20 +50,20 @@ public class ProfilActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profil);
 
         sharedPreferences = getBaseContext().getSharedPreferences(PREFS, MODE_PRIVATE);
+        utilisateurReference = FirebaseDatabase.getInstance().getReference("utilisateurs");
 
         //Instanciation
-        editMailButton = findViewById(R.id.editMailButton);
+        editInfosButton = findViewById(R.id.editInfosButton);
         nomTextView = findViewById(R.id.nomTextView);
-        prenomTextView = findViewById(R.id.prenomTextView);
         mandatTextView = findViewById(R.id.mandatTextView);
         mailTextView = findViewById(R.id.mailTextView);
 
         //Setters
-        editMailButton.setText("Modifier mon Mail");
-        editMailButton.setOnClickListener(new View.OnClickListener() {
+        editInfosButton.setText("Modifier Infos");
+        editInfosButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentEditMail = new Intent(ProfilActivity.this, EditMailActivity.class);
+                Intent intentEditMail = new Intent(ProfilActivity.this, EditInfosActivity.class);
                 startActivity(intentEditMail);
             }
         });
@@ -59,9 +72,6 @@ public class ProfilActivity extends AppCompatActivity {
         TODO : Implémenter le choix d'un avatar parmi une liste en cliquant sur l'imageButton (images stockées dans l'app ou en BDD
          */
 
-        /*
-        TODO : Récupérer les infos du profil en BDD et les afficher
-         */
     }
 
     @Override
@@ -71,9 +81,30 @@ public class ProfilActivity extends AppCompatActivity {
         nomProfil = sharedPreferences.getString(PREFS_NOM, null);
         prenomProfil = sharedPreferences.getString(PREFS_PRENOM, null);
         mailProfil = sharedPreferences.getString(PREFS_MAIL, null);
-
-        nomTextView.setText(nomProfil);
-        prenomTextView.setText(prenomProfil);
+        nomTextView.setText(prenomProfil + " " + nomProfil);
         mailTextView.setText(mailProfil);
+
+
+        utilisateurReference.orderByChild("mail")
+                .equalTo(mailProfil)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for (DataSnapshot data : dataSnapshot.getChildren()) {
+                            retrieveMandat = data.child("mandat").getValue().toString();
+                            retrieveCirconscription = data.child("circonscription").getValue().toString();
+                            retrieveDepartement = data.child("departement").getValue().toString();
+                            retrieveCommune = data.child("commune").getValue().toString();
+                        }
+
+                        mandatTextView.setText("Mandat : " + retrieveMandat + "\nCirconscription : " + retrieveCirconscription +
+                                "\nDépartement : " + retrieveDepartement + "\nCommune : " + retrieveDepartement);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
     }
 }

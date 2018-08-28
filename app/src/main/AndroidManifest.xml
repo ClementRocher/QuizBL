@@ -34,7 +34,7 @@
             android:name=".activities.ProfilActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.EditMailActivity"
+            android:name=".activities.EditInfosActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.InscriptionActivity"

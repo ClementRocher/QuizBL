@@ -22,18 +22,16 @@
         android:id="@+id/nomTextView"
         android:layout_width="wrap_content"
         android:layout_height="16dp"
-        android:text="Nom et prénom du joueur"
-        app:layout_constraintBottom_toTopOf="@+id/prenomTextView"
+        app:layout_constraintBottom_toTopOf="@+id/mailTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/avatarImageButton" />
 
     <TextView
-        android:id="@+id/prenomTextView"
+        android:id="@+id/mailTextView"
         android:layout_width="wrap_content"
         android:layout_height="19dp"
-        android:text="adresse mail du joueur"
         app:layout_constraintBottom_toTopOf="@+id/mandatTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -42,36 +40,34 @@
 
     <TextView
         android:id="@+id/mandatTextView"
-        android:layout_width="136dp"
-        android:layout_height="107dp"
-        android:text="Mandat, circonscription département, commune "
-        app:layout_constraintBottom_toTopOf="@+id/mailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/textInfosTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/prenomTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/mailTextView" />
 
     <TextView
-        android:id="@+id/mailTextView"
+        android:id="@+id/textInfosTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Option modifier mail ou mot de passe"
-        app:layout_constraintBottom_toTopOf="@+id/editMailButton"
+        app:layout_constraintBottom_toTopOf="@+id/editInfosButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mandatTextView" />
 
     <Button
-        android:id="@+id/editMailButton"
+        android:id="@+id/editInfosButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/mybutton"
-        android:text="Modifier Infos"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mailTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/textInfosTextView" />
 
 </android.support.constraint.ConstraintLayout>

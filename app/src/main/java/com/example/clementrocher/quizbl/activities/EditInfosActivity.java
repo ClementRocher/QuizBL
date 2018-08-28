@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.example.clementrocher.quizbl.R;
 
-public class EditMailActivity extends AppCompatActivity {
+public class EditInfosActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
