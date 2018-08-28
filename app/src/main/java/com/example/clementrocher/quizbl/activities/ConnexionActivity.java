@@ -46,6 +46,7 @@ public class ConnexionActivity extends AppCompatActivity {
 
     String nomUtilisateur;
     String prenomUtilisateur;
+    String passwordVerif;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,17 +57,7 @@ public class ConnexionActivity extends AppCompatActivity {
         //Instanciation DB
         db = FirebaseDatabase.getInstance().getReference();
         utilisateurReference = FirebaseDatabase.getInstance().getReference("utilisateurs");
-        utilisateurReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Utilisateur user = dataSnapshot.getValue(Utilisateur.class);
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
 
         //Instanciation
         connexionButton = findViewById(R.id.connexionButton);
@@ -88,21 +79,39 @@ public class ConnexionActivity extends AppCompatActivity {
                     if (!mailMatcher.matches()) {
                         Toast.makeText(ConnexionActivity.this, "Le format du mail entré n'est pas valide", Toast.LENGTH_LONG).show();
                     } else {
-                        Toast.makeText(ConnexionActivity.this, "Bravo", Toast.LENGTH_SHORT).show();
-                        /*
-                        TODO : vérifier dans la base de données que ce couple mail/password est bon
-                        TODO : récupérer le nom et prénom correspondant
-                        */
 
-                        /*
-                        sharedPreferences.edit()
-                                .putString(PREFS_NOM,nomUtilisateur)
-                                .putString(PREFS_PRENOM,prenomUtilisateur)
-                                .putString(PREFS_MAIL,emailAttempt)
-                                .apply();
-                                */
-                        Intent intentAccueil = new Intent(ConnexionActivity.this, AccueilActivity.class);
-                        startActivity(intentAccueil);
+                        utilisateurReference.orderByChild("mail")
+                                .equalTo(emailAttempt)
+                                .addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                        for (DataSnapshot datas : dataSnapshot.getChildren()) {
+                                            passwordVerif = datas.child("password").getValue().toString();
+                                            nomUtilisateur = datas.child("nom").getValue().toString();
+                                            prenomUtilisateur = datas.child("prenom").getValue().toString();
+                                        }
+
+                                        if (passwordAttempt.equals(passwordVerif)) {
+                                            sharedPreferences.edit()
+                                                    .putString(PREFS_NOM, nomUtilisateur)
+                                                    .putString(PREFS_PRENOM, prenomUtilisateur)
+                                                    .putString(PREFS_MAIL, emailAttempt)
+                                                    .apply();
+                                            Intent intentAccueil = new Intent(ConnexionActivity.this, AccueilActivity.class);
+                                            startActivity(intentAccueil);
+                                        } else {
+                                            nomUtilisateur = null;
+                                            prenomUtilisateur = null;
+                                            passwordVerif = null;
+                                            Toast.makeText(ConnexionActivity.this, "Les informations de connexion ne sont pas bonnes", Toast.LENGTH_LONG).show();
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                    }
+                                });
                     }
                 }
             }
