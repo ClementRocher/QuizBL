@@ -7,24 +7,111 @@
     android:background="@color/background"
     tools:context=".activities.ClassementActivity">
 
-    <Button
-        android:id="@+id/button5"
+    <ImageView
+        android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_weight="1"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Partage Twitter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/scorePartieTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="190dp"
+        android:layout_weight="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/intituleScorePartieTextView"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Partage FB"
+        android:id="@+id/nouvellePartieButton"
+        android:layout_width="256dp"
+        android:layout_height="88dp"
+        android:text="NOUVELLE PARTIE !"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.587" />
+        app:layout_constraintTop_toBottomOf="@+id/encouragementTextView" />
+
+    <TextView
+        android:id="@+id/userTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/intituleScorePartieTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+
+    <TextView
+        android:id="@+id/intituleScoreGlobalTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Votre score moyen :"
+        app:layout_constraintBottom_toTopOf="@+id/encouragementTextView"
+        app:layout_constraintEnd_toStartOf="@+id/scoreGlobalTextView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/intituleScorePartieTextView" />
+
+    <TextView
+        android:id="@+id/scoreGlobalTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="270dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/intituleScoreGlobalTextView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/intituleScorePartieTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Votre score à cette partie : "
+        app:layout_constraintBottom_toTopOf="@+id/intituleScoreGlobalTextView"
+        app:layout_constraintEnd_toStartOf="@+id/scorePartieTextView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userTextView" />
+
+    <TextView
+        android:id="@+id/encouragementTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Petit texte descriptif"
+        app:layout_constraintBottom_toTopOf="@+id/nouvellePartieButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/intituleScoreGlobalTextView" />
+
+    <Button
+        android:id="@+id/imageButton"
+        android:layout_width="117dp"
+        android:layout_height="54dp"
+        app:layout_constraintEnd_toStartOf="@+id/button3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </android.support.constraint.ConstraintLayout>
