@@ -10,12 +10,14 @@ public class Utilisateur {
     private String circonscription;
     private String departement;
     private String commune;
+    private String scoreGlobal;
+    private String nbParties;
 
     public Utilisateur(){
 
     }
 
-    public Utilisateur(String nom, String prenom, String mail, String password, String mandat, String circonscription, String departement, String commune) {
+    public Utilisateur(String nom, String prenom, String mail, String password, String mandat, String circonscription, String departement, String commune, String scoreGlobal,String nbParties) {
         this.nom = nom;
         this.prenom = prenom;
         this.mail = mail;
@@ -24,6 +26,8 @@ public class Utilisateur {
         this.circonscription = circonscription;
         this.departement = departement;
         this.commune = commune;
+        this.scoreGlobal=scoreGlobal;
+        this.nbParties=nbParties;
     }
 
     public String getNom() {
@@ -88,5 +92,21 @@ public class Utilisateur {
 
     public void setCommune(String commune) {
         this.commune = commune;
+    }
+
+    public String getScoreGlobal() {
+        return scoreGlobal;
+    }
+
+    public void setScoreGlobal(String scoreglobal) {
+        this.scoreGlobal = scoreglobal;
+    }
+
+    public String getNbParties() {
+        return nbParties;
+    }
+
+    public void setNbParties(String nbParties) {
+        this.nbParties = nbParties;
     }
 }

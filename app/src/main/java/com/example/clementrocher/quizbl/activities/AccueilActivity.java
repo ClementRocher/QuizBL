@@ -19,7 +19,6 @@ public class AccueilActivity extends AppCompatActivity {
     ImageButton profilButton;
     ImageButton deconnexionButton;
     Button gameButton;
-    Button classementButton;
     Button retourButton;
     Button decoButton;
     Dialog dialogDeco;
@@ -46,7 +45,6 @@ public class AccueilActivity extends AppCompatActivity {
         //Instanciation
         profilButton = findViewById(R.id.profilButton);
         gameButton = findViewById(R.id.gameButton);
-        classementButton = findViewById(R.id.classementButton);
         profilAffichageTextView = findViewById(R.id.profilAffichageTextView);
         deconnexionButton = findViewById(R.id.deconnexionButton);
 
@@ -74,14 +72,6 @@ public class AccueilActivity extends AppCompatActivity {
             }
         });
 
-        classementButton.setText("Accéder à mon \nclassement");
-        classementButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intentClassement = new Intent(AccueilActivity.this, ClassementActivity.class);
-                startActivity(intentClassement);
-            }
-        });
 
         deconnexionButton.setOnClickListener(new View.OnClickListener() {
             @Override

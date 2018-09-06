@@ -19,10 +19,37 @@
     <string-array name="mandat_array">
         <item>Sélectionnez votre type de mandat</item>
         <item>Maire</item>
-        <item>Maire Adjoint</item>
+        <item>Adjoint au Maire</item>
         <item>Conseiller Municipal</item>
+        <item>Parlementaire</item>
+        <item>Conseiller Intercommunal</item>
+        <item>Président d'Intercommunalité</item>
+        <item>Conseiller Départemental</item>
+        <item>Conseiller Régional</item>
         <item>Autre</item>
     </string-array>
+
+    <string name="encouragementsUnder5">
+        Restez conseiller municipal, c’est mieux pour tout le monde…
+        Mais en politique, tout peut arriver !
+    </string>
+    <string name="encouragements5">
+        Vous pouvez être maire…
+        Un peu d’ambition, briguez le département !
+    </string>
+
+    <string name="encouragements6">
+        Vous avez de l’avenir ! Mais le département vous passe sous le nez.
+    </string>
+    <string name="encouragements7">
+        Vous êtres président de département ! Cap sur la Région !
+    </string>
+    <string name="encouragements8">
+        Vous êtes président de Région et donc…. candidat à l’élection présidentielle ! Ne lâchez rien !
+    </string>
+    <string name="encouragements9">
+        Emmanuel Macron prépare ses valises… Vous êtes Président de la République ! Mais le resterez vous longtemps ..?
+    </string>
 
     <string name="conditions">
 

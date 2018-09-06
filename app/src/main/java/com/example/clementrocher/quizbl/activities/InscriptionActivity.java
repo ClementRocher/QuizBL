@@ -178,7 +178,7 @@ public class InscriptionActivity extends AppCompatActivity implements AdapterVie
                             .putString(PREFS_MAIL, mail)
                             .apply();
 
-                    utilisateur = new Utilisateur(nom, prenom, mail, password, mandat, circonscription, departement, commune);
+                    utilisateur = new Utilisateur(nom, prenom, mail, password, mandat, circonscription, departement, commune, "0", "0");
 
                     utilisateurReference.push().setValue(utilisateur);
                     Intent intentInscription = new Intent(InscriptionActivity.this, AccueilActivity.class);

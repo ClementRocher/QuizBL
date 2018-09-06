@@ -42,21 +42,21 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/nomEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:ems="10"
-                android:hint="Nom"
-                android:inputType="textPersonName" />
-
-            <EditText
                 android:id="@+id/prenomEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:ems="10"
                 android:hint="Prénom"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/nomEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="Nom"
                 android:inputType="textPersonName" />
 
             <EditText

@@ -20,20 +20,7 @@ public class LoginActivity extends AppCompatActivity {
 
         inscriptionButton = findViewById(R.id.goToInscriptionBouton);
         connexionButton = findViewById(R.id.goToConnexionButton);
-
-
-        //Bouton d'acces rapide au menu principal
-        /*
-        Todo : supprimer ce bouton absolument quand le stayLogged sera pret
-         */
-        Button accesrapideBouton = (Button) findViewById(R.id.raccourci);
-        accesrapideBouton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intentAcces = new Intent(LoginActivity.this, AccueilActivity.class);
-                startActivity(intentAcces);
-            }
-        });
+        
     }
 
     @Override

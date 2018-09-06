@@ -20,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ProfilActivity extends AppCompatActivity {
 
-    ImageButton avatarImageButton;
+
     TextView nomTextView;
     TextView prenomTextView;
     TextView mandatTextView;
@@ -68,9 +68,6 @@ public class ProfilActivity extends AppCompatActivity {
             }
         });
 
-        /*
-        TODO : Implémenter le choix d'un avatar parmi une liste en cliquant sur l'imageButton (images stockées dans l'app ou en BDD
-         */
 
     }
 
