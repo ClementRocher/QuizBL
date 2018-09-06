@@ -20,7 +20,7 @@ public class LoginActivity extends AppCompatActivity {
 
         inscriptionButton = findViewById(R.id.goToInscriptionBouton);
         connexionButton = findViewById(R.id.goToConnexionButton);
-        
+
     }
 
     @Override
