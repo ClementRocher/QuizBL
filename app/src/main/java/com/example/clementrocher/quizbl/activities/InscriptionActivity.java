@@ -3,6 +3,7 @@ package com.example.clementrocher.quizbl.activities;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.provider.SyncStateContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -57,6 +58,7 @@ public class InscriptionActivity extends AppCompatActivity implements AdapterVie
     EditText departementEditText;
     EditText communeEditText;
     TextView alertbox_title;
+    TextView goToConnexionClickableTextView;
     Dialog dialog;
     Spinner mandatSpinner;
     Button conditionsButton;
@@ -92,13 +94,14 @@ public class InscriptionActivity extends AppCompatActivity implements AdapterVie
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mandatSpinner.setAdapter(adapter);
         accepterConditionsCheckbox = findViewById(R.id.accepterConditionsCheckBox);
-
-        //Sérialisation
+        goToConnexionClickableTextView = findViewById(R.id.goToConnexionClickableTextView);
         mandatSpinner.setOnItemSelectedListener(this);
         circonscriptionEditText = findViewById(R.id.circonscriptionEditText);
         departementEditText = findViewById(R.id.departementEditText);
         communeEditText = findViewById(R.id.communeEditText);
 
+
+        //Sérialisation
         conditionsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -123,6 +126,13 @@ public class InscriptionActivity extends AppCompatActivity implements AdapterVie
                 /*
                 TODO : Enlever le Lorem Ipsum avant version finale
                  */
+            }
+        });
+
+        goToConnexionClickableTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getBaseContext(), ConnexionActivity.class));
             }
         });
 

@@ -100,7 +100,7 @@ public class AccueilActivity extends AppCompatActivity {
                         sharedPreferences.edit().remove(PREFS_PRENOM).apply();
                         sharedPreferences.edit().remove(PREFS_NOM).apply();
                         sharedPreferences.edit().remove(PREFS_MAIL).apply();
-                        Intent intentDeco = new Intent(AccueilActivity.this, LoginActivity.class);
+                        Intent intentDeco = new Intent(AccueilActivity.this, InscriptionActivity.class);
                         startActivity(intentDeco);
                     }
                 });
