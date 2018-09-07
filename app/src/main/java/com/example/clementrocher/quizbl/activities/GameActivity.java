@@ -185,16 +185,13 @@ public class GameActivity extends AppCompatActivity {
                 reponse4Button.setEnabled(false);
                 nextQuestionButton.setEnabled(true);
                 numQuestion++;
-                if(currentQuestion.getBonneReponse().equals(reponse1Button.getText())){
+                if (currentQuestion.getBonneReponse().equals(reponse1Button.getText())) {
                     reponse1Button.setBackground(getResources().getDrawable(R.drawable.boutonvrai));
-                }
-                else if(currentQuestion.getBonneReponse().equals(reponse2Button.getText())){
+                } else if (currentQuestion.getBonneReponse().equals(reponse2Button.getText())) {
                     reponse2Button.setBackground(getResources().getDrawable(R.drawable.boutonvrai));
-                }
-                else if(currentQuestion.getBonneReponse().equals(reponse3Button.getText())){
+                } else if (currentQuestion.getBonneReponse().equals(reponse3Button.getText())) {
                     reponse3Button.setBackground(getResources().getDrawable(R.drawable.boutonvrai));
-                }
-                else if(currentQuestion.getBonneReponse().equals(reponse4Button.getText())){
+                } else if (currentQuestion.getBonneReponse().equals(reponse4Button.getText())) {
                     reponse4Button.setBackground(getResources().getDrawable(R.drawable.boutonvrai));
                 }
             }
@@ -220,13 +217,11 @@ public class GameActivity extends AppCompatActivity {
                     } else {
                         reponse1Button.setBackground(getResources().getDrawable(R.drawable.boutonfaux));
 
-                        if(currentQuestion.getBonneReponse().equals(reponse2Button.getText())){
+                        if (currentQuestion.getBonneReponse().equals(reponse2Button.getText())) {
                             reponse2Button.setBackground(getResources().getDrawable(R.drawable.boutonvrai));
-                        }
-                        else if(currentQuestion.getBonneReponse().equals(reponse3Button.getText())){
+                        } else if (currentQuestion.getBonneReponse().equals(reponse3Button.getText())) {
                             reponse3Button.setBackground(getResources().getDrawable(R.drawable.boutonvrai));
-                        }
-                        else if(currentQuestion.getBonneReponse().equals(reponse4Button.getText())){
+                        } else if (currentQuestion.getBonneReponse().equals(reponse4Button.getText())) {
                             reponse4Button.setBackground(getResources().getDrawable(R.drawable.boutonvrai));
                         }
                     }
@@ -240,13 +235,11 @@ public class GameActivity extends AppCompatActivity {
                     } else {
                         reponse2Button.setBackground(getResources().getDrawable(R.drawable.boutonfaux));
 
-                        if(currentQuestion.getBonneReponse().equals(reponse1Button.getText())){
+                        if (currentQuestion.getBonneReponse().equals(reponse1Button.getText())) {
                             reponse1Button.setBackground(getResources().getDrawable(R.drawable.boutonvrai));
-                        }
-                        else if(currentQuestion.getBonneReponse().equals(reponse3Button.getText())){
+                        } else if (currentQuestion.getBonneReponse().equals(reponse3Button.getText())) {
                             reponse3Button.setBackground(getResources().getDrawable(R.drawable.boutonvrai));
-                        }
-                        else if(currentQuestion.getBonneReponse().equals(reponse4Button.getText())){
+                        } else if (currentQuestion.getBonneReponse().equals(reponse4Button.getText())) {
                             reponse4Button.setBackground(getResources().getDrawable(R.drawable.boutonvrai));
                         }
                     }
@@ -260,13 +253,11 @@ public class GameActivity extends AppCompatActivity {
                     } else {
                         reponse3Button.setBackground(getResources().getDrawable(R.drawable.boutonfaux));
 
-                        if(currentQuestion.getBonneReponse().equals(reponse1Button.getText())){
+                        if (currentQuestion.getBonneReponse().equals(reponse1Button.getText())) {
                             reponse1Button.setBackground(getResources().getDrawable(R.drawable.boutonvrai));
-                        }
-                        else if(currentQuestion.getBonneReponse().equals(reponse2Button.getText())){
+                        } else if (currentQuestion.getBonneReponse().equals(reponse2Button.getText())) {
                             reponse2Button.setBackground(getResources().getDrawable(R.drawable.boutonvrai));
-                        }
-                        else if(currentQuestion.getBonneReponse().equals(reponse4Button.getText())){
+                        } else if (currentQuestion.getBonneReponse().equals(reponse4Button.getText())) {
                             reponse4Button.setBackground(getResources().getDrawable(R.drawable.boutonvrai));
                         }
                     }
@@ -280,13 +271,11 @@ public class GameActivity extends AppCompatActivity {
                     } else {
                         reponse4Button.setBackground(getResources().getDrawable(R.drawable.boutonfaux));
 
-                        if(currentQuestion.getBonneReponse().equals(reponse1Button.getText())){
+                        if (currentQuestion.getBonneReponse().equals(reponse1Button.getText())) {
                             reponse1Button.setBackground(getResources().getDrawable(R.drawable.boutonvrai));
-                        }
-                        else if(currentQuestion.getBonneReponse().equals(reponse2Button.getText())){
+                        } else if (currentQuestion.getBonneReponse().equals(reponse2Button.getText())) {
                             reponse2Button.setBackground(getResources().getDrawable(R.drawable.boutonvrai));
-                        }
-                        else if(currentQuestion.getBonneReponse().equals(reponse3Button.getText())){
+                        } else if (currentQuestion.getBonneReponse().equals(reponse3Button.getText())) {
                             reponse3Button.setBackground(getResources().getDrawable(R.drawable.boutonvrai));
                         }
                     }

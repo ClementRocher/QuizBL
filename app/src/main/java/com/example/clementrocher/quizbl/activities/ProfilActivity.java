@@ -1,11 +1,13 @@
 package com.example.clementrocher.quizbl.activities;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -25,7 +27,14 @@ public class ProfilActivity extends AppCompatActivity {
     TextView prenomTextView;
     TextView mandatTextView;
     TextView mailTextView;
-    Button editInfosButton;
+    ImageButton retourImageButton;
+    TextView modifierMailTextView;
+    TextView deconnexionTextView;
+    TextView aideTextView;
+    Button retourButton;
+    Button decoButton;
+    Dialog dialogDeco;
+    TextView alertbox_quit_text;
 
     private static final String PREFS = "PREFS";
     private static final String PREFS_NOM = "PREFS_NOM";
@@ -53,18 +62,73 @@ public class ProfilActivity extends AppCompatActivity {
         utilisateurReference = FirebaseDatabase.getInstance().getReference("utilisateurs");
 
         //Instanciation
-        editInfosButton = findViewById(R.id.editInfosButton);
+
         nomTextView = findViewById(R.id.nomTextView);
         mandatTextView = findViewById(R.id.mandatTextView);
         mailTextView = findViewById(R.id.mailTextView);
+        retourImageButton = findViewById(R.id.retourImageButton);
+        modifierMailTextView = findViewById(R.id.textInfosTextView);
+        deconnexionTextView = findViewById(R.id.deconnexionTextView);
+        aideTextView = findViewById(R.id.aideTextView);
+
 
         //Setters
-        editInfosButton.setText("Modifier Infos");
-        editInfosButton.setOnClickListener(new View.OnClickListener() {
+
+        modifierMailTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intentEditMail = new Intent(ProfilActivity.this, EditInfosActivity.class);
                 startActivity(intentEditMail);
+            }
+        });
+        deconnexionTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Pop Up des conditions d'utilisations
+                dialogDeco = new Dialog(ProfilActivity.this);
+                dialogDeco.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialogDeco.setContentView(R.layout.deconnexion_pop_up);
+                dialogDeco.setCanceledOnTouchOutside(false);
+                alertbox_quit_text = dialogDeco.findViewById(R.id.alertbox_quit_text);
+
+                retourButton = dialogDeco.findViewById(R.id.retourButton);
+                decoButton = dialogDeco.findViewById(R.id.decoButton);
+                retourButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialogDeco.dismiss();
+                    }
+                });
+                decoButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+
+                        sharedPreferences.edit().remove(PREFS_PRENOM).apply();
+                        sharedPreferences.edit().remove(PREFS_NOM).apply();
+                        sharedPreferences.edit().remove(PREFS_MAIL).apply();
+                        Intent intentDeco = new Intent(ProfilActivity.this, InscriptionActivity.class);
+                        startActivity(intentDeco);
+                    }
+                });
+
+                dialogDeco.show();
+            }
+        });
+        aideTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                /**
+                 * TODO : Afficher les règles du jeu
+                 */
+            }
+        });
+
+        retourImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getBaseContext(), AccueilActivity.class));
             }
         });
 

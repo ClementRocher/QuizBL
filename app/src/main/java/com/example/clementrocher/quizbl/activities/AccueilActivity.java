@@ -17,12 +17,7 @@ public class AccueilActivity extends AppCompatActivity {
 
     TextView profilAffichageTextView;
     ImageButton profilButton;
-    ImageButton deconnexionButton;
     Button gameButton;
-    Button retourButton;
-    Button decoButton;
-    Dialog dialogDeco;
-    TextView alertbox_quit_text;
 
     String nomUtilisateur;
     String prenomUtilisateur;
@@ -46,7 +41,6 @@ public class AccueilActivity extends AppCompatActivity {
         profilButton = findViewById(R.id.profilButton);
         gameButton = findViewById(R.id.gameButton);
         profilAffichageTextView = findViewById(R.id.profilAffichageTextView);
-        deconnexionButton = findViewById(R.id.deconnexionButton);
 
         nomUtilisateur = sharedPreferences.getString(PREFS_NOM, null);
         prenomUtilisateur = sharedPreferences.getString(PREFS_PRENOM, null);
@@ -73,41 +67,7 @@ public class AccueilActivity extends AppCompatActivity {
         });
 
 
-        deconnexionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                //Pop Up des conditions d'utilisations
-                dialogDeco = new Dialog(AccueilActivity.this);
-                dialogDeco.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                dialogDeco.setContentView(R.layout.deconnexion_pop_up);
-                dialogDeco.setCanceledOnTouchOutside(false);
-                alertbox_quit_text = dialogDeco.findViewById(R.id.alertbox_quit_text);
-
-                retourButton = dialogDeco.findViewById(R.id.retourButton);
-                decoButton = dialogDeco.findViewById(R.id.decoButton);
-                retourButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialogDeco.dismiss();
-                    }
-                });
-                decoButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-
-
-                        sharedPreferences.edit().remove(PREFS_PRENOM).apply();
-                        sharedPreferences.edit().remove(PREFS_NOM).apply();
-                        sharedPreferences.edit().remove(PREFS_MAIL).apply();
-                        Intent intentDeco = new Intent(AccueilActivity.this, InscriptionActivity.class);
-                        startActivity(intentDeco);
-                    }
-                });
-
-                dialogDeco.show();
-            }
-        });
 
     }
 

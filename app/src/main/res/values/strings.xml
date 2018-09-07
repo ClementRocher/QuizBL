@@ -55,6 +55,18 @@
         <u>Déjà inscrit ? Je me connecte</u>
     </string>
 
+    <string name="deconnexion">
+        <u>Déconnexion</u>
+    </string>
+
+    <string name="modifinfos">
+        <u>Modifier mes Infos</u>
+    </string>
+
+    <string name="aide">
+        <u>Aide et Règles du jeu</u>
+    </string>
+
 
     <string name="conditions">
 
